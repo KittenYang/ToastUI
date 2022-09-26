@@ -18,6 +18,7 @@ struct ToastViewIsPresentedModifier<ToastContent>: ViewModifier where ToastConte
   @Binding var isPresented: Bool
   let dismissAfter: Double?
   let onDismiss: (() -> Void)?
+  let isUserInteractionEnabled: Bool
   let content: () -> ToastContent
 
   @State private var toastWindow: UIWindow!
@@ -46,6 +47,8 @@ struct ToastViewIsPresentedModifier<ToastContent>: ViewModifier where ToastConte
       window.windowScene = windowScene
       toastWindow = window
     }
+      
+    toastWindow.isUserInteractionEnabled = isUserInteractionEnabled
 
     let rootViewController = toastWindow.rootViewController!
 
@@ -117,6 +120,7 @@ where Item: Identifiable & Equatable, ToastContent: View {
   @Binding var item: Item?
   let dismissAfter: Double?
   let onDismiss: (() -> Void)?
+  let isUserInteractionEnabled: Bool
   let content: (Item) -> ToastContent
 
   @State private var toastWindow: UIWindow!
@@ -145,6 +149,8 @@ where Item: Identifiable & Equatable, ToastContent: View {
       window.windowScene = windowScene
       toastWindow = window
     }
+      
+    toastWindow.isUserInteractionEnabled = isUserInteractionEnabled
 
     let rootViewController = toastWindow.rootViewController!
 

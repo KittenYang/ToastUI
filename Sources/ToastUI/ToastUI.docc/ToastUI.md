@@ -17,8 +17,8 @@ ToastUI provides you a simple way to present toast, head-up display (HUD), custo
 
 ### Presenting
 
-- ``ToastView/toast(isPresented:dismissAfter:onDismiss:content:)``
-- ``ToastView/toast(item:dismissAfter:onDismiss:content:)``
+- ``ToastView/toast(isPresented:dismissAfter:onDismiss:isUserInteractionEnabled:content:)``
+- ``ToastView/toast(item:dismissAfter:onDismiss:isUserInteractionEnabled:content:)``
 
 ### Modifiers
 

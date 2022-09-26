@@ -20,6 +20,7 @@ public extension View {
     isPresented: Binding<Bool>,
     dismissAfter: Double? = nil,
     onDismiss: (() -> Void)? = nil,
+    isUserInteractionEnabled: Bool = true,
     @ViewBuilder content: @escaping () -> Content
   ) -> some View where Content: View {
     modifier(
@@ -27,6 +28,7 @@ public extension View {
         isPresented: isPresented,
         dismissAfter: dismissAfter,
         onDismiss: onDismiss,
+        isUserInteractionEnabled: isUserInteractionEnabled,
         content: content
       )
     )
@@ -48,6 +50,7 @@ public extension View {
     item: Binding<Item?>,
     dismissAfter: Double? = nil,
     onDismiss: (() -> Void)? = nil,
+    isUserInteractionEnabled: Bool = true,
     @ViewBuilder content: @escaping (Item) -> Content
   ) -> some View where Item: Identifiable & Equatable, Content: View {
     modifier(
@@ -55,6 +58,7 @@ public extension View {
         item: item,
         dismissAfter: dismissAfter,
         onDismiss: onDismiss,
+        isUserInteractionEnabled: isUserInteractionEnabled,
         content: content
       )
     )
