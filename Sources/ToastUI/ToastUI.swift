@@ -18,16 +18,16 @@ public extension View {
   ///   - content: A closure that returns the content of the toast.
   func toast<Content>(
     isPresented: Binding<Bool>,
-    dismissAfter: Double? = nil,
-    onDismiss: (() -> Void)? = nil,
-    isUserInteractionEnabled: Bool = true,
+    dismissAfter: Binding<Double?>,
+    onDismiss: Binding<(() -> Void)?>,
+	isUserInteractionEnabled: Binding<Bool>,
     @ViewBuilder content: @escaping () -> Content
   ) -> some View where Content: View {
     modifier(
       ToastViewIsPresentedModifier<Content>(
         isPresented: isPresented,
-        dismissAfter: dismissAfter,
-        onDismiss: onDismiss,
+		dismissAfter: dismissAfter ,
+		onDismiss: onDismiss,
         isUserInteractionEnabled: isUserInteractionEnabled,
         content: content
       )

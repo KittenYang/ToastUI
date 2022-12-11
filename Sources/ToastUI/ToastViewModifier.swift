@@ -15,10 +15,11 @@ let logger = Logger(subsystem: "com.quanshousio.ToastUI", category: "ToastUI")
 
 #if os(iOS) || os(tvOS)
 struct ToastViewIsPresentedModifier<ToastContent>: ViewModifier where ToastContent: View {
+	
   @Binding var isPresented: Bool
-  let dismissAfter: Double?
-  let onDismiss: (() -> Void)?
-  let isUserInteractionEnabled: Bool
+	@Binding var dismissAfter: Double?
+	@Binding var onDismiss: (() -> Void)?
+	@Binding var isUserInteractionEnabled: Bool
   let content: () -> ToastContent
 
   @State private var toastWindow: UIWindow!
